@@ -1,28 +1,42 @@
-print("Preço antigo                 Percentual de aumento\n"
-      "Até R$ 50.00                 5%\n"
-      "Entre R$ 50.00 e R$ 100.00   10%\n"
-      "Acima de R$ 100.00           15%")
-preco = float(input("Informe o valor para saber o aumento: "))
+preco_ant = float(input("Digite o preço antigo do produto: "))
+aumento = 0
+preco_novo = preco_ant * aumento
 
-if preco < 50:
-      aumento = preco * 1.05
-      print(f"Valor com aumento: {round(aumento, 2)}")
-elif 50 <= preco <= 100:
-      aumento = preco * 1.10
-      print(f"Valor com aumento: {round(aumento, 2)}")
-elif preco > 100:
-      aumento = preco * 1.15
-      print(f"Valor com aumento: {round(aumento, 2)}")
-else:
-      print("Valores inválidos.")
+if preco_ant < 50:
+    aumento = 1.05
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 5% de aumento é de {round(preco_novo, 2)}.\n"
+          f"BARATO")
 
-if aumento < 80:
-      print("Barato")
-elif 80 <= aumento <= 120:
-      print("Normal")
-elif 120 <= aumento <= 200:
-      print("Caro")
-elif aumento > 200:
-      print("Muito caro")
+elif 50 <= preco_ant <= 100 and preco_novo < 80 :
+    aumento = 1.1
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 10% de aumento é de {round(preco_novo, 2)}.\n"
+          f"BARATO")
+
+elif 50 <= preco_ant <= 100 and 80 <= preco_novo < 120:
+    aumento = 1.1
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 10% de aumento é de {round(preco_novo, 2)}.\n"
+          f"NORMAL")
+
+elif preco_ant > 100 and 80 <= preco_novo < 120:
+    aumento = 1.5
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 15% de aumento é de {round(preco_novo, 2)}.\n"
+          f"NORMAL")
+
+elif preco_ant > 100 and 120 <= preco_novo <= 200:
+    aumento = 1.5
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 15% de aumento é de {round(preco_novo, 2)}.\n"
+          f"CARO")
+
+elif preco_ant > 100 and preco_novo > 200:
+    aumento = 1.5
+    preco_novo = preco_ant * aumento
+    print(f"O preço novo com 15% de aumento é de {round(preco_novo, 2)}.\n"
+          f"MUITO CARO")
+
 else:
-      print("Valores inválidos.")
+    print("Valores inválidos.")
